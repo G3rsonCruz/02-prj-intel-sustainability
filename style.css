@@ -1,4 +1,7 @@
+/* ========================================================= */
 /* GENERAL PAGE STYLING */
+/* ========================================================= */
+
 
 /* Makes widths and heights easier to control */
 * {
@@ -17,7 +20,12 @@ body {
   color: #222;
 }
 
+
+
+/* ========================================================= */
 /* HERO / HEADER */
+/* ========================================================= */
+
 
 /* Large Intel-blue section at the top */
 .hero {
@@ -64,7 +72,7 @@ body {
 }
 
 
-/* Decorative line underneath the title */
+/* Decorative line */
 .title-line {
   width: 80px;
 
@@ -87,9 +95,14 @@ body {
   font-size: 17px;
 }
 
-/* TIMELINE */
 
-/* Keeps all cards in one horizontal row */
+
+/* ========================================================= */
+/* TIMELINE */
+/* ========================================================= */
+
+
+/* Keeps the cards in one horizontal row */
 .timeline {
   display: flex;
 
@@ -99,37 +112,36 @@ body {
 
   flex-wrap: nowrap;
 
-  /* Allows the timeline to scroll horizontally */
   overflow-x: auto;
 
-  /*
-    Keeps cards aligned at the top
-    when one card becomes taller.
-  */
   align-items: flex-start;
 
-  /* Bonus scroll snap effect */
+  /* Bonus scroll snap */
   scroll-snap-type: x mandatory;
 
-  /* Smooth horizontal scrolling */
   scroll-behavior: smooth;
 }
 
-/* TIMELINE CARDS */
 
-/* Styles every timeline card */
+
+/* ========================================================= */
+/* TIMELINE CARDS */
+/* ========================================================= */
+
+
+/* Styles every card */
 .timeline-card {
   background-color: white;
 
-  /* Keeps every card the same width */
+  /* Fixed card width */
   flex: 0 0 260px;
 
   padding: 18px;
 
-  /* Light normal border */
+  /* Light border */
   border: 2px solid #d5e1e8;
 
-  /* Dark Intel-blue top border */
+  /* Intel-blue top border */
   border-top: 5px solid #005b96;
 
   /* Rounded corners */
@@ -138,39 +150,43 @@ body {
   /* Soft shadow */
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
 
-  /* Scroll snap point */
+  /* Centers cards during scroll snapping */
   scroll-snap-align: center;
 
-  /* Smooth card animations */
+  /* Smooth hover effects */
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
 
-/* CARD HOVER / ACTIVE EFFECT */
 
-/*
-  Both a hovered card and the card being
-  automatically centered use these styles.
-*/
+
+/* ========================================================= */
+/* CARD HOVER EFFECT */
+/* ========================================================= */
+
+
+/* Hovered and centered cards use the same style */
 .timeline-card:hover,
 .timeline-card.is-active {
-  /* Moves the card upward */
   transform: translateY(-8px);
 
-  /* Dark border that matches the rest of the site */
   border-color: #005b96;
 
   border-top-color: #003c71;
 
-  /* Dark blue shadow */
   box-shadow: 0 12px 24px rgba(0, 60, 113, 0.25);
 }
 
-/* YEAR BADGES */
 
-/* Rounded Intel-blue year badge */
+
+/* ========================================================= */
+/* YEAR BADGES */
+/* ========================================================= */
+
+
+/* Rounded blue year badge */
 .timeline-card h2 {
   display: inline-block;
 
@@ -196,10 +212,7 @@ body {
 }
 
 
-/*
-  Changes the badge when the card
-  is hovered or centered.
-*/
+/* Changes the badge during hover */
 .timeline-card:hover h2,
 .timeline-card.is-active h2 {
   background-color: #004a86;
@@ -207,9 +220,14 @@ body {
   transform: scale(1.04);
 }
 
-/* CARD TITLES */
 
-/* Styles the milestone title */
+
+/* ========================================================= */
+/* CARD TITLES */
+/* ========================================================= */
+
+
+/* Milestone title */
 .timeline-card h3 {
   margin-top: 0;
 
@@ -220,9 +238,14 @@ body {
   color: #222;
 }
 
-/* IMAGE AREA */
 
-/* Keeps the zoomed image inside the card */
+
+/* ========================================================= */
+/* IMAGE CONTAINER */
+/* ========================================================= */
+
+
+/* Holds every card image */
 .image-container {
   width: 100%;
 
@@ -236,32 +259,99 @@ body {
 }
 
 
-/* Styles the images */
+
+/* ========================================================= */
+/* SPECIAL FULL-IMAGE CONTAINER */
+/* ========================================================= */
+
+
+/*
+  Used for images containing important text.
+
+  Gives the 2020 image slightly more height so
+  the complete picture can be displayed.
+*/
+.full-image-container {
+  height: 150px;
+
+  /*
+    Gives any unused space a subtle background
+    instead of leaving it looking empty.
+  */
+  background-color: #eef5f9;
+}
+
+
+
+/* ========================================================= */
+/* TIMELINE IMAGES */
+/* ========================================================= */
+
+
+/* Normal card images */
 .timeline-image {
   width: 100%;
 
   height: 100%;
 
-  /* Prevents images from stretching */
+  /*
+    cover fills the image box but can crop
+    parts of the picture.
+  */
   object-fit: cover;
+
+  object-position: center;
 
   display: block;
 
-  /* Smooth zoom animation */
   transition: transform 0.4s ease;
 }
 
 
 /*
-  Zooms the image when the card is
-  hovered or centered.
+  Used only on an image where we want
+  EVERYTHING in the picture to stay visible.
 */
+.timeline-image.full-image {
+  /*
+    contain shows the entire picture
+    without cutting off any edges.
+  */
+  object-fit: contain;
+
+  object-position: center;
+}
+
+
+
+/* ========================================================= */
+/* IMAGE HOVER EFFECT */
+/* ========================================================= */
+
+
+/* Normal images zoom slightly */
 .timeline-card:hover .timeline-image,
 .timeline-card.is-active .timeline-image {
   transform: scale(1.06);
 }
 
+
+/*
+  Do NOT zoom the special full image.
+
+  Zooming it would crop the edges again.
+*/
+.timeline-card:hover .timeline-image.full-image,
+.timeline-card.is-active .timeline-image.full-image {
+  transform: none;
+}
+
+
+
+/* ========================================================= */
 /* CARD DESCRIPTIONS */
+/* ========================================================= */
+
 
 /* Description starts hidden */
 .card-description {
@@ -285,10 +375,7 @@ body {
 }
 
 
-/*
-  Displays the description when the card
-  is hovered or automatically centered.
-*/
+/* Shows description on hover */
 .timeline-card:hover .card-description,
 .timeline-card.is-active .card-description {
   opacity: 1;
@@ -296,9 +383,14 @@ body {
   max-height: 500px;
 }
 
-/* TIMELINE HELP TEXT */
 
-/* Instructions underneath the timeline */
+
+/* ========================================================= */
+/* TIMELINE HELP TEXT */
+/* ========================================================= */
+
+
+/* Instructions underneath timeline */
 .timeline-help {
   text-align: center;
 
@@ -311,9 +403,14 @@ body {
   font-size: 14px;
 }
 
-/* FOOTER */
 
-/* Styles the footer */
+
+/* ========================================================= */
+/* FOOTER */
+/* ========================================================= */
+
+
+/* Footer styling */
 footer {
   background-color: #003c71;
 
@@ -325,20 +422,21 @@ footer {
 }
 
 
-/* Removes extra paragraph spacing */
+/* Removes extra footer spacing */
 footer p {
   margin: 0;
 }
 
-/* MOBILE RESPONSIVE DESIGN */
 
-/*
-  These styles are used when the screen
-  is 700 pixels wide or smaller.
-*/
+
+/* ========================================================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ========================================================= */
+
+
 @media (max-width: 700px) {
 
-  /* Smaller heading for phones */
+  /* Smaller heading */
   .hero h1 {
     font-size: 32px;
   }
@@ -350,10 +448,7 @@ footer p {
   }
 
 
-  /*
-    Changes the timeline from horizontal
-    to vertical.
-  */
+  /* Changes the timeline to vertical */
   .timeline {
     flex-direction: column;
 
@@ -365,7 +460,7 @@ footer p {
   }
 
 
-  /* Makes every card fill the phone screen */
+  /* Cards fill the phone screen */
   .timeline-card {
     flex: 1;
 
@@ -375,9 +470,7 @@ footer p {
   }
 
 
-  /*
-    Descriptions are always visible on phones.
-  */
+  /* Descriptions stay visible */
   .card-description {
     opacity: 1;
 
@@ -385,28 +478,28 @@ footer p {
   }
 
 
-  /* Removes card movement on phones */
+  /* Removes card movement */
   .timeline-card:hover,
   .timeline-card.is-active {
     transform: none;
   }
 
 
-  /* Removes image zoom on phones */
+  /* Removes normal image zoom */
   .timeline-card:hover .timeline-image,
   .timeline-card.is-active .timeline-image {
     transform: none;
   }
 
 
-  /* Removes badge movement on phones */
+  /* Removes badge movement */
   .timeline-card:hover h2,
   .timeline-card.is-active h2 {
     transform: none;
   }
 
 
-  /* Adds spacing around instructions */
+  /* Extra spacing for directions */
   .timeline-help {
     padding: 0 15px;
   }
