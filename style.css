@@ -279,7 +279,7 @@ body {
   the card is hovered.
 */
 .timeline-card:hover h2 {
-  background-color: #00a6d9;
+  background-color: #0b00d9c7;
 
   transform: scale(1.05);
 }
