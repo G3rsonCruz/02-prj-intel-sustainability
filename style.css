@@ -1,7 +1,4 @@
-/* ========================================================= */
 /* GENERAL PAGE STYLING */
-/* ========================================================= */
-
 
 /* Makes sizing elements easier */
 * {
@@ -20,12 +17,7 @@ body {
   color: #222;
 }
 
-
-
-/* ========================================================= */
 /* HERO / HEADER */
-/* ========================================================= */
-
 
 /* Large blue section at the top */
 .hero {
@@ -95,12 +87,7 @@ body {
   font-size: 17px;
 }
 
-
-
-/* ========================================================= */
 /* TIMELINE */
-/* ========================================================= */
-
 
 /* Holds all timeline cards */
 .timeline {
@@ -116,10 +103,7 @@ body {
   /* Lets the user scroll left and right */
   overflow-x: auto;
 
-
-  /* ===================================================== */
   /* BONUS: CSS SCROLL SNAP */
-  /* ===================================================== */
 
   /*
     Makes the timeline snap smoothly from one card
@@ -131,12 +115,7 @@ body {
   scroll-behavior: smooth;
 }
 
-
-
-/* ========================================================= */
 /* TIMELINE CARDS */
-/* ========================================================= */
-
 
 /* Styles each individual card */
 .timeline-card {
@@ -151,21 +130,14 @@ body {
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-
-  /* ===================================================== */
   /* BONUS: SCROLL SNAP POSITION */
-  /* ===================================================== */
 
   /*
     Tells the browser where each card should snap.
   */
   scroll-snap-align: start;
 
-
-  /* ===================================================== */
   /* BONUS: SMOOTH TRANSFORMS */
-  /* ===================================================== */
-
   /*
     Makes movement and shadows change smoothly.
   */
@@ -174,12 +146,7 @@ body {
     box-shadow 0.3s ease;
 }
 
-
-
-/* ========================================================= */
 /* BONUS: CARD HOVER TRANSFORM */
-/* ========================================================= */
-
 
 /*
   When the mouse moves over a card:
@@ -216,12 +183,7 @@ body {
   font-size: 18px;
 }
 
-
-
-/* ========================================================= */
 /* IMAGE CONTAINER */
-/* ========================================================= */
-
 
 /*
   Holds each image and prevents a zoomed image
@@ -237,12 +199,7 @@ body {
   margin-bottom: 15px;
 }
 
-
-
-/* ========================================================= */
 /* TIMELINE IMAGES */
-/* ========================================================= */
-
 
 /* Styles the images */
 .timeline-image {
@@ -261,12 +218,7 @@ body {
   transition: transform 0.4s ease;
 }
 
-
-
-/* ========================================================= */
 /* BONUS: IMAGE ZOOM */
-/* ========================================================= */
-
 
 /*
   Slightly zooms the image when the entire card
@@ -276,12 +228,7 @@ body {
   transform: scale(1.08);
 }
 
-
-
-/* ========================================================= */
 /* PLACEHOLDER IMAGES */
-/* ========================================================= */
-
 
 /*
   Temporary design for timeline events that do not
@@ -322,12 +269,7 @@ body {
   transform: scale(1.04);
 }
 
-
-
-/* ========================================================= */
 /* CARD DESCRIPTION */
-/* ========================================================= */
-
 
 /*
   Hides the description until the user hovers
@@ -359,12 +301,7 @@ body {
   max-height: 350px;
 }
 
-
-
-/* ========================================================= */
 /* TIMELINE HELP TEXT */
-/* ========================================================= */
-
 
 /* Directions under the timeline */
 .timeline-help {
@@ -379,12 +316,7 @@ body {
   font-size: 14px;
 }
 
-
-
-/* ========================================================= */
 /* FOOTER */
-/* ========================================================= */
-
 
 /* Styles the footer */
 footer {
@@ -403,12 +335,7 @@ footer p {
   margin: 0;
 }
 
-
-
-/* ========================================================= */
 /* MOBILE RESPONSIVE DESIGN */
-/* ========================================================= */
-
 
 /*
   These styles activate when the screen becomes
