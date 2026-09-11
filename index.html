@@ -59,20 +59,12 @@
 
   <main>
 
-    <!--
-      Flexbox keeps the cards in one horizontal row.
-      The section can be scrolled left and right.
-    -->
     <section class="timeline">
 
 
-      <!-- ================================================= -->
       <!-- CARD 1: 1968 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
-        <!-- Year badge -->
         <h2>1968</h2>
 
         <h3>Intel Founded</h3>
@@ -96,10 +88,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 2: 1971 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>1971</h2>
@@ -125,10 +114,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 3: 1978 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>1978</h2>
@@ -153,10 +139,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 4: 1985 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>1985</h2>
@@ -182,10 +165,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 5: 2006 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>2006</h2>
@@ -212,10 +192,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 6: 2020 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>2020</h2>
@@ -241,10 +218,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 7: 2022 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>2022</h2>
@@ -270,10 +244,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 8: 2023 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>2023</h2>
@@ -299,10 +270,7 @@
       </article>
 
 
-      <!-- ================================================= -->
       <!-- CARD 9: 2024 -->
-      <!-- ================================================= -->
-
       <article class="timeline-card">
 
         <h2>2024</h2>
@@ -352,77 +320,189 @@
 
 
   <!-- ===================================================== -->
-  <!-- SMOOTH AUTO-SCROLL FOR EXPANDED CARDS -->
+  <!-- CARD CENTERING AND AUTO-SCROLL -->
   <!-- ===================================================== -->
 
   <script>
 
     /*
-      Finds every timeline card on the page.
+      Gets the timeline section.
+    */
+    const timeline = document.querySelector(".timeline");
+
+
+    /*
+      Gets every timeline card.
     */
     const timelineCards = document.querySelectorAll(".timeline-card");
 
 
     /*
-      Runs this code whenever the mouse enters a card.
+      Checks whether the device actually supports hovering.
+
+      This prevents this effect from interfering
+      with phones and tablets.
     */
-    timelineCards.forEach(function(card) {
-
-      card.addEventListener("mouseenter", function() {
-
-        /*
-          Waits a short moment for the card's hover
-          animation to begin expanding.
-        */
-        setTimeout(function() {
-
-          /*
-            Finds the card's position on the screen
-            after it has expanded.
-          */
-          const cardPosition = card.getBoundingClientRect();
+    const canHover = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    );
 
 
-          /*
-            Leaves a small amount of space underneath
-            the card so it does not sit directly against
-            the bottom of the browser window.
-          */
-          const bottomSpace = 30;
+    /*
+      Prevents several cards from trying to center
+      at the exact same time.
+    */
+    let isCentering = false;
 
+
+    /*
+      Only use the hover centering effect on devices
+      that use a mouse or trackpad.
+    */
+    if (canHover.matches) {
+
+      timelineCards.forEach(function(card) {
+
+        card.addEventListener("mouseenter", function() {
 
           /*
-            Checks whether the bottom of the card extends
-            below the visible browser window.
+            Ignore another card for a short moment
+            while the current one is moving.
           */
-          if (cardPosition.bottom > window.innerHeight - bottomSpace) {
-
-            /*
-              Calculates exactly how far down the page
-              needs to move.
-            */
-            const scrollAmount =
-              cardPosition.bottom -
-              window.innerHeight +
-              bottomSpace;
-
-
-            /*
-              Smoothly moves the page down just enough
-              to show the entire expanded card.
-            */
-            window.scrollBy({
-              top: scrollAmount,
-              behavior: "smooth"
-            });
-
+          if (isCentering) {
+            return;
           }
 
-        }, 250);
+
+          isCentering = true;
+
+
+          /*
+            Removes the active class from every card.
+          */
+          timelineCards.forEach(function(otherCard) {
+            otherCard.classList.remove("is-active");
+          });
+
+
+          /*
+            Keeps the selected card expanded while
+            it smoothly moves toward the center.
+          */
+          card.classList.add("is-active");
+
+
+          /*
+            Gets the current position of the timeline
+            and the selected card.
+          */
+          const timelinePosition =
+            timeline.getBoundingClientRect();
+
+          const cardPosition =
+            card.getBoundingClientRect();
+
+
+          /*
+            Finds the exact center of the card
+            inside the scrollable timeline.
+          */
+          const cardCenter =
+            cardPosition.left -
+            timelinePosition.left +
+            timeline.scrollLeft +
+            (cardPosition.width / 2);
+
+
+          /*
+            Calculates where the timeline needs
+            to scroll so the card ends up centered.
+          */
+          const centerPosition =
+            cardCenter -
+            (timeline.clientWidth / 2);
+
+
+          /*
+            Smoothly scrolls the selected card
+            into the center of the timeline.
+          */
+          timeline.scrollTo({
+            left: centerPosition,
+            behavior: "smooth"
+          });
+
+
+          /*
+            Waits for the card to finish expanding
+            before checking whether the bottom
+            is outside the screen.
+          */
+          setTimeout(function() {
+
+            const expandedCard =
+              card.getBoundingClientRect();
+
+            const bottomSpace = 30;
+
+
+            /*
+              If the expanded card goes below
+              the visible browser window...
+            */
+            if (
+              expandedCard.bottom >
+              window.innerHeight - bottomSpace
+            ) {
+
+              /*
+                Figure out exactly how far down
+                the page needs to move.
+              */
+              const scrollAmount =
+                expandedCard.bottom -
+                window.innerHeight +
+                bottomSpace;
+
+
+              /*
+                Smoothly scroll down just enough
+                to show the entire card.
+              */
+              window.scrollBy({
+                top: scrollAmount,
+                behavior: "smooth"
+              });
+
+            }
+
+
+            /*
+              Allows another card to center
+              after this animation is finished.
+            */
+            isCentering = false;
+
+          }, 450);
+
+        });
 
       });
 
-    });
+
+      /*
+        When the mouse completely leaves the timeline,
+        remove the active card.
+      */
+      timeline.addEventListener("mouseleave", function() {
+
+        timelineCards.forEach(function(card) {
+          card.classList.remove("is-active");
+        });
+
+      });
+
+    }
 
   </script>
 
