@@ -1,1 +1,323 @@
-/* Add your CSS here */
+/* GENERAL PAGE STYLING */
+/* Makes width and height easier to control */
+* {
+  box-sizing: border-box;
+}
+
+
+/* Styles the entire webpage */
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: #f4f4f4;
+
+  color: #222;
+}
+
+/* HEADER / HERO SECTION */
+/* Creates the large Intel-blue area at the top */
+.hero {
+  background: linear-gradient(
+    to right,
+    #00a6d9,
+    #0068b5,
+    #004a86
+  );
+
+  color: white;
+
+  text-align: center;
+
+  padding: 40px 20px;
+}
+
+
+/* Keeps the header content centered */
+.hero-content {
+  max-width: 700px;
+
+  margin: auto;
+}
+
+
+/* Controls the size of the Intel logo */
+.intel-logo {
+  width: 100px;
+
+  margin-bottom: 20px;
+}
+
+
+/* Styles the main heading */
+.hero h1 {
+  margin: 0;
+
+  font-size: 42px;
+
+  text-transform: uppercase;
+
+  line-height: 1.1;
+}
+
+
+/* Creates the small line underneath the heading */
+.title-line {
+  width: 80px;
+
+  height: 3px;
+
+  background-color: #21c7f3;
+
+  margin: 20px auto;
+}
+
+
+/* Styles the paragraph under the heading */
+.hero p {
+  max-width: 600px;
+
+  margin: auto;
+
+  line-height: 1.6;
+
+  font-size: 17px;
+}
+
+/* TIMELINE */
+/* Holds all of the timeline cards */
+.timeline {
+  display: flex;
+
+  gap: 20px;
+
+  padding: 40px;
+
+  /* Keeps the cards on one horizontal row */
+  flex-wrap: nowrap;
+
+  /* Lets the user scroll left and right */
+  overflow-x: auto;
+}
+
+/* TIMELINE CARDS */
+/* Styles every timeline card */
+.timeline-card {
+  background-color: white;
+
+  /* Keeps every card the same width */
+  flex: 0 0 250px;
+
+  padding: 18px;
+
+  border-radius: 4px;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+
+  /* Makes hover movement smooth */
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+
+/* Moves the card slightly upward when hovered */
+.timeline-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Styles the year */
+.timeline-card h2 {
+  margin-top: 0;
+
+  margin-bottom: 8px;
+
+  color: #0068b5;
+
+  font-size: 26px;
+}
+
+
+/* Styles the event name */
+.timeline-card h3 {
+  margin-top: 0;
+
+  margin-bottom: 12px;
+
+  font-size: 18px;
+}
+
+/* TIMELINE IMAGES */
+/* Styles the real images inside the timeline cards */
+.timeline-image {
+  width: 100%;
+
+  height: 140px;
+
+  /*
+    Makes the image fill the area without becoming stretched.
+  */
+  object-fit: cover;
+
+  display: block;
+
+  margin-bottom: 15px;
+}
+
+/* IMAGE PLACEHOLDERS */
+/*
+  Used for cards that do not currently have an image.
+*/
+.image-placeholder {
+  width: 100%;
+
+  height: 140px;
+
+  background: linear-gradient(
+    135deg,
+    #0099cc,
+    #004a86
+  );
+
+  color: white;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 27px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+/* CARD DESCRIPTION */
+/*
+  The description starts hidden on desktop.
+*/
+.card-description {
+  opacity: 0;
+
+  max-height: 0;
+
+  overflow: hidden;
+
+  margin: 0;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+
+  transition: opacity 0.3s ease,
+              max-height 0.3s ease;
+}
+
+
+/*
+  Shows the description when the user hovers over the card.
+*/
+.timeline-card:hover .card-description {
+  opacity: 1;
+
+  max-height: 350px;
+}
+
+/* TIMELINE HELP TEXT */
+/* Styles the directions below the timeline */
+.timeline-help {
+  text-align: center;
+
+  margin-top: 0;
+
+  margin-bottom: 30px;
+
+  color: #444;
+}
+
+/* FOOTER */
+/* Styles the bottom of the webpage */
+footer {
+  background-color: #003c71;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 15px;
+}
+
+
+/* Removes extra space from the footer paragraph */
+footer p {
+  margin: 0;
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+/*
+  These changes happen when the screen is 700 pixels
+  wide or smaller.
+*/
+@media (max-width: 700px) {
+
+  /* Makes the heading smaller on phones */
+  .hero h1 {
+    font-size: 32px;
+  }
+
+
+  /* Makes the logo smaller on phones */
+  .intel-logo {
+    width: 85px;
+  }
+
+
+  /*
+    Changes the timeline from horizontal to vertical
+    on phones.
+  */
+  .timeline {
+    flex-direction: column;
+
+    padding: 20px;
+
+    overflow-x: visible;
+  }
+
+
+  /* Makes each card fill the available width */
+  .timeline-card {
+    flex: 1;
+
+    width: 100%;
+  }
+
+
+  /*
+    Phones do not normally have hover, so descriptions
+    remain visible.
+  */
+  .card-description {
+    opacity: 1;
+
+    max-height: 350px;
+  }
+
+
+  /* Removes the hover movement on smaller screens */
+  .timeline-card:hover {
+    transform: none;
+  }
+
+
+  /* Gives the help text some space on mobile */
+  .timeline-help {
+    padding: 0 15px;
+  }
+
+}
