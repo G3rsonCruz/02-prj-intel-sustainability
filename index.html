@@ -11,7 +11,7 @@
   <!-- Title shown in the browser tab -->
   <title>Intel: Sustainability Through the Ages</title>
 
-  <!-- Connects this HTML page to the CSS file -->
+  <!-- Connects the HTML file to the CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,10 +38,10 @@
         Through the Ages
       </h1>
 
-      <!-- Decorative line -->
+      <!-- Decorative line underneath the title -->
       <div class="title-line"></div>
 
-      <!-- Website description -->
+      <!-- Intro paragraph -->
       <p>
         Explore Intel's journey through time, discovering how our
         commitment to innovation has shaped a more sustainable future
@@ -54,21 +54,25 @@
 
 
   <!-- ===================================================== -->
-  <!-- TIMELINE -->
+  <!-- TIMELINE SECTION -->
   <!-- ===================================================== -->
 
   <main>
 
     <!--
-      All timeline cards stay directly inside this section.
-      Flexbox keeps them in one horizontal row.
+      Flexbox keeps the cards in one horizontal row.
+      The section can be scrolled left and right.
     -->
     <section class="timeline">
 
 
-      <!-- CARD 1 -->
+      <!-- ================================================= -->
+      <!-- CARD 1: 1968 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
+        <!-- Year badge -->
         <h2>1968</h2>
 
         <h3>Intel Founded</h3>
@@ -92,7 +96,10 @@
       </article>
 
 
-      <!-- CARD 2 -->
+      <!-- ================================================= -->
+      <!-- CARD 2: 1971 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>1971</h2>
@@ -118,7 +125,10 @@
       </article>
 
 
-      <!-- CARD 3 -->
+      <!-- ================================================= -->
+      <!-- CARD 3: 1978 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>1978</h2>
@@ -143,7 +153,10 @@
       </article>
 
 
-      <!-- CARD 4 -->
+      <!-- ================================================= -->
+      <!-- CARD 4: 1985 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>1985</h2>
@@ -169,7 +182,10 @@
       </article>
 
 
-      <!-- CARD 5 -->
+      <!-- ================================================= -->
+      <!-- CARD 5: 2006 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>2006</h2>
@@ -196,7 +212,10 @@
       </article>
 
 
-      <!-- CARD 6 -->
+      <!-- ================================================= -->
+      <!-- CARD 6: 2020 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>2020</h2>
@@ -222,7 +241,10 @@
       </article>
 
 
-      <!-- CARD 7 -->
+      <!-- ================================================= -->
+      <!-- CARD 7: 2022 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>2022</h2>
@@ -248,7 +270,10 @@
       </article>
 
 
-      <!-- CARD 8 -->
+      <!-- ================================================= -->
+      <!-- CARD 8: 2023 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>2023</h2>
@@ -274,7 +299,10 @@
       </article>
 
 
-      <!-- CARD 9 -->
+      <!-- ================================================= -->
+      <!-- CARD 9: 2024 -->
+      <!-- ================================================= -->
+
       <article class="timeline-card">
 
         <h2>2024</h2>
@@ -302,7 +330,7 @@
     </section>
 
 
-    <!-- Instructions under the timeline -->
+    <!-- Instructions underneath the timeline -->
     <p class="timeline-help">
       ← Scroll to explore the timeline → | Hover over cards to learn more!
     </p>
@@ -321,6 +349,82 @@
     </p>
 
   </footer>
+
+
+  <!-- ===================================================== -->
+  <!-- SMOOTH AUTO-SCROLL FOR EXPANDED CARDS -->
+  <!-- ===================================================== -->
+
+  <script>
+
+    /*
+      Finds every timeline card on the page.
+    */
+    const timelineCards = document.querySelectorAll(".timeline-card");
+
+
+    /*
+      Runs this code whenever the mouse enters a card.
+    */
+    timelineCards.forEach(function(card) {
+
+      card.addEventListener("mouseenter", function() {
+
+        /*
+          Waits a short moment for the card's hover
+          animation to begin expanding.
+        */
+        setTimeout(function() {
+
+          /*
+            Finds the card's position on the screen
+            after it has expanded.
+          */
+          const cardPosition = card.getBoundingClientRect();
+
+
+          /*
+            Leaves a small amount of space underneath
+            the card so it does not sit directly against
+            the bottom of the browser window.
+          */
+          const bottomSpace = 30;
+
+
+          /*
+            Checks whether the bottom of the card extends
+            below the visible browser window.
+          */
+          if (cardPosition.bottom > window.innerHeight - bottomSpace) {
+
+            /*
+              Calculates exactly how far down the page
+              needs to move.
+            */
+            const scrollAmount =
+              cardPosition.bottom -
+              window.innerHeight +
+              bottomSpace;
+
+
+            /*
+              Smoothly moves the page down just enough
+              to show the entire expanded card.
+            */
+            window.scrollBy({
+              top: scrollAmount,
+              behavior: "smooth"
+            });
+
+          }
+
+        }, 250);
+
+      });
+
+    });
+
+  </script>
 
 </body>
 
