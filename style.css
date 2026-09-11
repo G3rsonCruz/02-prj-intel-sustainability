@@ -127,6 +127,7 @@ body {
   */
   scroll-snap-type: x mandatory;
 
+  /* Makes scrolling smooth */
   scroll-behavior: smooth;
 }
 
@@ -144,41 +145,29 @@ body {
   background-color: white;
 
   /*
-    Prevents the cards from becoming giant
-    full-width boxes.
+    Keeps each card at a smaller fixed width
+    instead of stretching across the screen.
   */
   flex: 0 0 260px;
 
   padding: 18px;
 
-  /*
-    Regular light border.
-  */
+  /* Light border around each card */
   border: 2px solid #dce8ef;
 
-  /*
-    Stronger blue border across the top.
-  */
+  /* Intel-blue border along the top */
   border-top: 5px solid #0068b5;
 
-  /*
-    Rounded corners.
-  */
+  /* Rounded corners */
   border-radius: 14px;
 
-  /*
-    Soft card shadow.
-  */
+  /* Soft shadow underneath each card */
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
 
-  /*
-    Bonus scroll snap.
-  */
+  /* Card snaps into place while scrolling */
   scroll-snap-align: start;
 
-  /*
-    Smooth hover animation.
-  */
+  /* Smooth hover animations */
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -193,11 +182,8 @@ body {
 
 
 /*
-  Creates a small blue line from one card
-  toward the next card.
-
-  Together, the lines make the cards look
-  connected like a real timeline.
+  Adds a small blue line after each card
+  to make the row feel more like a timeline.
 */
 .timeline-card::after {
   content: "";
@@ -220,17 +206,17 @@ body {
 
 
 /* ========================================================= */
-/* HOVER EFFECT */
+/* CARD HOVER EFFECT */
 /* ========================================================= */
 
 
 /*
-  When the mouse moves over a card:
+  When a card is hovered:
 
-  - the card rises
-  - it grows slightly
-  - the blue border becomes brighter
-  - the shadow gets stronger
+  - it rises slightly
+  - it becomes a little larger
+  - the border becomes brighter blue
+  - the shadow becomes stronger
 */
 .timeline-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -250,7 +236,7 @@ body {
 
 
 /*
-  Turns the year into a small rounded badge.
+  Turns each year into a rounded blue badge.
 */
 .timeline-card h2 {
   display: inline-block;
@@ -259,27 +245,43 @@ body {
 
   margin-bottom: 12px;
 
-  padding: 6px 13px;
-
+  /* Intel blue background */
   background-color: #0068b5;
 
+  /* White year text */
   color: white;
 
+  /* Adds space inside the badge */
+  padding: 6px 14px;
+
+  /* Makes the badge rounded */
   border-radius: 20px;
 
   font-size: 21px;
 
+  line-height: 1;
+
+  /*
+    Keeps the badge only as wide as the year,
+    rather than stretching across the card.
+  */
+  width: auto;
+
+  /* Smooth hover effect */
   transition:
     background-color 0.3s ease,
     transform 0.3s ease;
 }
 
 
-/* Changes the badge when hovering */
+/*
+  Makes the year badge brighter when
+  the card is hovered.
+*/
 .timeline-card:hover h2 {
   background-color: #00a6d9;
 
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 
@@ -296,6 +298,8 @@ body {
   margin-bottom: 12px;
 
   font-size: 18px;
+
+  color: #222;
 }
 
 
@@ -329,19 +333,18 @@ body {
   height: 100%;
 
   /*
-    Prevents the images from stretching.
+    Prevents the image from stretching.
   */
   object-fit: cover;
 
   display: block;
 
+  /* Smooth image zoom */
   transition: transform 0.4s ease;
 }
 
 
-/*
-  Slightly zooms the image when hovering.
-*/
+/* Slightly zooms the image when hovering */
 .timeline-card:hover .timeline-image {
   transform: scale(1.08);
 }
@@ -354,7 +357,7 @@ body {
 
 
 /*
-  Description starts hidden on desktop.
+  Descriptions start hidden on desktop.
 */
 .card-description {
   opacity: 0;
@@ -378,7 +381,7 @@ body {
 
 
 /*
-  Description appears when hovering.
+  Shows the description when the card is hovered.
 */
 .timeline-card:hover .card-description {
   opacity: 1;
@@ -393,7 +396,7 @@ body {
 /* ========================================================= */
 
 
-/* Text underneath the cards */
+/* Text underneath the timeline */
 .timeline-help {
   text-align: center;
 
@@ -438,25 +441,26 @@ footer p {
 
 
 /*
-  Activates on screens 700 pixels wide or smaller.
+  These styles activate when the screen
+  is 700 pixels wide or smaller.
 */
 @media (max-width: 700px) {
 
-  /* Smaller title for phones */
+  /* Makes the title smaller on phones */
   .hero h1 {
     font-size: 32px;
   }
 
 
-  /* Smaller logo */
+  /* Makes the Intel logo smaller */
   .intel-logo {
     width: 85px;
   }
 
 
   /*
-    Changes the cards from horizontal
-    to vertical on phones.
+    Changes the horizontal timeline
+    into a vertical layout on phones.
   */
   .timeline {
     flex-direction: column;
@@ -471,9 +475,7 @@ footer p {
   }
 
 
-  /*
-    Makes each card fill the available width.
-  */
+  /* Makes each card fill the phone screen */
   .timeline-card {
     flex: 1;
 
@@ -484,8 +486,8 @@ footer p {
 
 
   /*
-    Removes the connecting horizontal lines
-    on the mobile layout.
+    Removes the small horizontal timeline lines
+    on mobile.
   */
   .timeline-card::after {
     display: none;
@@ -493,7 +495,7 @@ footer p {
 
 
   /*
-    Phones do not normally use hover,
+    Phones do not normally have hover,
     so descriptions stay visible.
   */
   .card-description {
@@ -515,13 +517,13 @@ footer p {
   }
 
 
-  /* Prevents year badge movement on phones */
+  /* Keeps the year badge still on phones */
   .timeline-card:hover h2 {
     transform: none;
   }
 
 
-  /* Gives the help text some spacing */
+  /* Gives the help text extra spacing */
   .timeline-help {
     padding: 0 15px;
   }
