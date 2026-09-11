@@ -2,18 +2,24 @@
 <html lang="en">
 
 <head>
+  <!-- Allows the webpage to use standard characters -->
   <meta charset="UTF-8">
 
+  <!-- Makes the website resize correctly on phones and tablets -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Title shown in the browser tab -->
   <title>Intel: Sustainability Through the Ages</title>
 
+  <!-- Connects the HTML file to the CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- ===================================================== -->
   <!-- HEADER / HERO SECTION -->
+  <!-- ===================================================== -->
 
   <header class="hero">
 
@@ -47,7 +53,9 @@
   </header>
 
 
+  <!-- ===================================================== -->
   <!-- TIMELINE SECTION -->
+  <!-- ===================================================== -->
 
   <main>
 
@@ -191,10 +199,17 @@
 
         <h3>RISE Strategy</h3>
 
-        <div class="image-container">
+        <!--
+          This container has an extra class because this image
+          contains text that we do not want cropped.
+        -->
+        <div class="image-container full-image-container">
 
+          <!--
+            full-image tells CSS to show the entire picture.
+          -->
           <img
-            class="timeline-image"
+            class="timeline-image full-image"
             src="img/6.png"
             alt="Intel RISE sustainability strategy in 2020"
           >
@@ -298,7 +313,9 @@
   </main>
 
 
+  <!-- ===================================================== -->
   <!-- FOOTER -->
+  <!-- ===================================================== -->
 
   <footer>
 
@@ -309,70 +326,46 @@
   </footer>
 
 
-  <!-- CARD CENTERING -->
+  <!-- ===================================================== -->
+  <!-- SMOOTH CARD CENTERING -->
+  <!-- ===================================================== -->
 
   <script>
 
     /* Gets the timeline */
     const timeline = document.querySelector(".timeline");
 
-
-    /* Gets all timeline cards */
+    /* Gets every timeline card */
     const timelineCards = document.querySelectorAll(".timeline-card");
 
-
-    /*
-      Checks if the device actually supports hovering.
-
-      This keeps the hover animation from interfering
-      with phones and tablets.
-    */
+    /* Checks if the device supports hovering */
     const canHover = window.matchMedia(
       "(hover: hover) and (pointer: fine)"
     );
 
-
-    /*
-      Keeps track of the hover delay.
-    */
+    /* Stores the hover delay */
     let hoverTimer;
 
-
-    /*
-      Prevents another card from starting its centering
-      animation while one is already moving.
-    */
+    /* Prevents several cards from centering at once */
     let isCentering = false;
 
 
     /*
-      CUSTOM SMOOTH HORIZONTAL SCROLL
+      Smoothly scrolls the timeline horizontally.
 
-      This gives us more control than:
-
-      behavior: "smooth"
-
-      because we can choose exactly how long
-      the animation takes.
+      targetPosition = where we want to scroll
+      duration = how long the animation takes
     */
     function smoothScrollTimeline(targetPosition, duration) {
 
-      /* Where the timeline is currently scrolled */
       const startPosition = timeline.scrollLeft;
 
-      /* How far it needs to move */
       const distance = targetPosition - startPosition;
 
-      /* Saves the time the animation started */
       const startTime = performance.now();
 
 
-      /*
-        Controls how the movement speeds up and slows down.
-
-        This creates a smoother movement instead of
-        moving at one constant speed.
-      */
+      /* Creates a smooth start and finish */
       function easeInOut(t) {
 
         return t < 0.5
@@ -382,37 +375,23 @@
       }
 
 
-      /* Runs each frame of the animation */
+      /* Runs every frame of the animation */
       function animation(currentTime) {
 
-        /* How much time has passed */
         const elapsed = currentTime - startTime;
 
+        const progress = Math.min(
+          elapsed / duration,
+          1
+        );
 
-        /*
-          Converts the animation progress into
-          a number between 0 and 1.
-        */
-        const progress = Math.min(elapsed / duration, 1);
-
-
-        /* Applies the easing effect */
         const easedProgress = easeInOut(progress);
 
-
-        /*
-          Moves the timeline a little bit
-          during each animation frame.
-        */
         timeline.scrollLeft =
           startPosition +
           distance * easedProgress;
 
 
-        /*
-          Continue the animation until it
-          reaches 100%.
-        */
         if (progress < 1) {
 
           requestAnimationFrame(animation);
@@ -429,47 +408,34 @@
 
 
 
-    /*
-      CARD HOVER BEHAVIOR
-    */
-
+    /* Only use hover centering on computers */
     if (canHover.matches) {
 
       timelineCards.forEach(function(card) {
 
 
-        /*
-          When the mouse enters a card...
-        */
+        /* When the mouse enters a card */
         card.addEventListener("mouseenter", function() {
 
 
-          /*
-            If another card is currently moving,
-            don't immediately activate this one.
-          */
+          /* Ignore another card while one is centering */
           if (isCentering) {
             return;
           }
 
 
           /*
-            Wait 350 milliseconds before doing anything.
+            Wait 350ms before centering.
 
-            This means quickly passing the mouse over
-            a card will NOT center it.
+            Quickly moving across a card will not trigger it.
           */
           hoverTimer = setTimeout(function() {
 
 
-            /* Locks the cards while centering */
             isCentering = true;
 
 
-            /*
-              Removes the active class from
-              every other card.
-            */
+            /* Removes active style from every card */
             timelineCards.forEach(function(otherCard) {
 
               otherCard.classList.remove("is-active");
@@ -477,16 +443,11 @@
             });
 
 
-            /*
-              Keeps this card expanded while
-              the timeline is moving.
-            */
+            /* Keeps this card open while moving */
             card.classList.add("is-active");
 
 
-            /*
-              Finds the card's position.
-            */
+            /* Finds card position */
             const cardPosition =
               card.getBoundingClientRect();
 
@@ -495,9 +456,7 @@
               timeline.getBoundingClientRect();
 
 
-            /*
-              Finds the center point of the card.
-            */
+            /* Finds the center of the selected card */
             const cardCenter =
               cardPosition.left -
               timelinePosition.left +
@@ -505,46 +464,33 @@
               cardPosition.width / 2;
 
 
-            /*
-              Calculates where the timeline must
-              scroll to place the card in the center.
-            */
+            /* Finds where the timeline should scroll */
             let centerPosition =
               cardCenter -
               timeline.clientWidth / 2;
 
 
-            /*
-              Prevents scrolling past the
-              beginning of the timeline.
-            */
+            /* Prevents scrolling too far left */
             centerPosition = Math.max(
               0,
               centerPosition
             );
 
 
-            /*
-              Prevents scrolling past the
-              end of the timeline.
-            */
+            /* Finds the farthest possible scroll position */
             const maxScroll =
               timeline.scrollWidth -
               timeline.clientWidth;
 
 
+            /* Prevents scrolling too far right */
             centerPosition = Math.min(
               centerPosition,
               maxScroll
             );
 
 
-            /*
-              Smoothly center the card.
-
-              850 milliseconds makes it feel slower
-              and more intentional.
-            */
+            /* Smoothly centers the card */
             smoothScrollTimeline(
               centerPosition,
               850
@@ -552,16 +498,12 @@
 
 
             /*
-              Wait until the horizontal movement
+              Wait until horizontal movement
               is nearly finished.
             */
             setTimeout(function() {
 
 
-              /*
-                Check whether the expanded card
-                extends below the screen.
-              */
               const expandedCard =
                 card.getBoundingClientRect();
 
@@ -569,25 +511,24 @@
               const bottomSpace = 30;
 
 
+              /*
+                If the expanded card goes below
+                the browser window...
+              */
               if (
                 expandedCard.bottom >
                 window.innerHeight - bottomSpace
               ) {
 
 
-                /*
-                  Finds how far downward the page
-                  needs to move.
-                */
+                /* Find how far down we need to move */
                 const scrollAmount =
                   expandedCard.bottom -
                   window.innerHeight +
                   bottomSpace;
 
 
-                /*
-                  Smoothly follows the card downward.
-                */
+                /* Smoothly move the page down */
                 window.scrollBy({
                   top: scrollAmount,
                   behavior: "smooth"
@@ -597,12 +538,8 @@
 
 
               /*
-                Adds a small cooldown after the
-                centering finishes.
-
-                This helps prevent your mouse from
-                accidentally activating the card
-                that moved underneath it.
+                Small cooldown so another card
+                does not accidentally activate.
               */
               setTimeout(function() {
 
@@ -611,7 +548,7 @@
               }, 300);
 
 
-            }, 700);
+            }, 850);
 
 
           }, 350);
@@ -621,11 +558,8 @@
 
 
         /*
-          If the mouse leaves BEFORE the 350 ms
-          delay finishes, cancel the centering.
-
-          This is what prevents accidental activation
-          while moving across several cards.
+          Cancels the action if the mouse
+          leaves before the 350ms delay.
         */
         card.addEventListener("mouseleave", function() {
 
@@ -638,8 +572,8 @@
 
 
       /*
-        When the mouse completely leaves the timeline,
-        remove the expanded card.
+        Closes the active card when the mouse
+        completely leaves the timeline.
       */
       timeline.addEventListener("mouseleave", function() {
 
