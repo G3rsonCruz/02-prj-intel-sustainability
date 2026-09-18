@@ -254,10 +254,6 @@
         <h3>RISE Strategy</h3>
 
 
-        <!--
-          Special container because this image
-          contains text that should not be cropped.
-        -->
         <div class="image-container full-image-container">
 
           <img
@@ -395,10 +391,6 @@
 
     <section class="info-section">
 
-      <!--
-        Bootstrap's container keeps the content
-        centered with space on the left and right.
-      -->
       <div class="container">
 
 
@@ -418,32 +410,17 @@
 
 
 
-        <!--
-          Bootstrap row holds our columns.
-
-          g-4 adds spacing between each column.
-        -->
+        <!-- Bootstrap row -->
         <div class="row g-4">
 
 
 
-          <!-- ======================================== -->
           <!-- COLUMN 1 -->
-          <!-- ======================================== -->
-
-          <!--
-            col-12 = full width on small screens
-
-            col-md-4 = one-third width on medium
-            screens and larger
-          -->
           <div class="col-12 col-md-4">
-
 
             <div class="info-card h-100">
 
 
-              <!-- Bootstrap icon -->
               <i
                 class="bi bi-cloud-check info-icon"
                 aria-hidden="true">
@@ -472,24 +449,18 @@
 
             </div>
 
-
           </div>
 
 
 
 
 
-          <!-- ======================================== -->
           <!-- COLUMN 2 -->
-          <!-- ======================================== -->
-
           <div class="col-12 col-md-4">
-
 
             <div class="info-card h-100">
 
 
-              <!-- Bootstrap icon -->
               <i
                 class="bi bi-lightning-charge info-icon"
                 aria-hidden="true">
@@ -518,24 +489,18 @@
 
             </div>
 
-
           </div>
 
 
 
 
 
-          <!-- ======================================== -->
           <!-- COLUMN 3 -->
-          <!-- ======================================== -->
-
           <div class="col-12 col-md-4">
-
 
             <div class="info-card h-100">
 
 
-              <!-- Bootstrap icon -->
               <i
                 class="bi bi-droplet info-icon"
                 aria-hidden="true">
@@ -564,8 +529,138 @@
 
             </div>
 
-
           </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+
+
+    <!-- ======================================== -->
+    <!-- NEWSLETTER SUBSCRIPTION FORM -->
+    <!-- ======================================== -->
+
+    <section class="newsletter-section">
+
+      <div class="container">
+
+
+        <!-- Keeps the form from becoming too wide -->
+        <div class="newsletter-box">
+
+
+          <!-- Newsletter icon -->
+          <i
+            class="bi bi-envelope-paper newsletter-icon"
+            aria-hidden="true">
+          </i>
+
+
+          <!-- Section heading -->
+          <h2>
+            Sustainability Newsletter
+          </h2>
+
+
+          <!-- Short description -->
+          <p class="newsletter-description">
+            Stay updated on Intel's sustainability goals,
+            progress, and environmental initiatives.
+          </p>
+
+
+
+          <!--
+            Bootstrap form.
+
+            action="#" is used because this is a class project
+            and there is no real newsletter server connected.
+          -->
+          <form action="#" method="post">
+
+
+
+            <!-- Name field -->
+            <div class="mb-3">
+
+              <label
+                for="full-name"
+                class="form-label"
+              >
+                Full Name
+              </label>
+
+
+              <input
+                type="text"
+                class="form-control"
+                id="full-name"
+                name="full-name"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+
+
+
+            <!-- Email field -->
+            <div class="mb-3">
+
+              <label
+                for="email"
+                class="form-label"
+              >
+                Email Address
+              </label>
+
+
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                autocomplete="email"
+                aria-describedby="email-help"
+                required
+              >
+
+
+              <!-- Extra information for the email field -->
+              <div
+                id="email-help"
+                class="form-text"
+              >
+                We'll use your email only for newsletter updates.
+              </div>
+
+            </div>
+
+
+
+
+
+            <!-- Subscribe button -->
+            <button
+              type="submit"
+              class="btn btn-primary subscribe-button"
+            >
+              Subscribe
+            </button>
+
+
+          </form>
 
 
         </div>
@@ -696,7 +791,6 @@
 
 
 
-      /* Starts the animation */
       requestAnimationFrame(animation);
 
 
@@ -714,27 +808,18 @@
 
 
 
-        /* When the mouse enters a card */
         card.addEventListener("mouseenter", function() {
 
 
 
-          /* Ignore another card while one is centering */
           if (isCentering) {
 
-
             return;
-
 
           }
 
 
 
-          /*
-            Wait 350ms before centering.
-
-            Quickly moving across a card will not trigger it.
-          */
           hoverTimer = setTimeout(function() {
 
 
@@ -743,23 +828,18 @@
 
 
 
-            /* Removes active style from every card */
             timelineCards.forEach(function(otherCard) {
 
-
               otherCard.classList.remove("is-active");
-
 
             });
 
 
 
-            /* Keeps this card open while moving */
             card.classList.add("is-active");
 
 
 
-            /* Finds card position */
             const cardPosition =
               card.getBoundingClientRect();
 
@@ -770,7 +850,6 @@
 
 
 
-            /* Finds the center of the selected card */
             const cardCenter =
               cardPosition.left -
               timelinePosition.left +
@@ -779,14 +858,12 @@
 
 
 
-            /* Finds where the timeline should scroll */
             let centerPosition =
               cardCenter -
               timeline.clientWidth / 2;
 
 
 
-            /* Prevents scrolling too far left */
             centerPosition = Math.max(
               0,
               centerPosition
@@ -794,14 +871,12 @@
 
 
 
-            /* Finds the farthest possible scroll position */
             const maxScroll =
               timeline.scrollWidth -
               timeline.clientWidth;
 
 
 
-            /* Prevents scrolling too far right */
             centerPosition = Math.min(
               centerPosition,
               maxScroll
@@ -809,7 +884,6 @@
 
 
 
-            /* Smoothly centers the card */
             smoothScrollTimeline(
               centerPosition,
               850
@@ -817,10 +891,6 @@
 
 
 
-            /*
-              Wait until horizontal movement
-              is nearly finished.
-            */
             setTimeout(function() {
 
 
@@ -834,10 +904,6 @@
 
 
 
-              /*
-                If the expanded card goes below
-                the browser window...
-              */
               if (
                 expandedCard.bottom >
                 window.innerHeight - bottomSpace
@@ -845,7 +911,6 @@
 
 
 
-                /* Find how far down we need to move */
                 const scrollAmount =
                   expandedCard.bottom -
                   window.innerHeight +
@@ -853,15 +918,11 @@
 
 
 
-                /* Smoothly move the page down */
                 window.scrollBy({
-
 
                   top: scrollAmount,
 
-
                   behavior: "smooth"
-
 
                 });
 
@@ -870,15 +931,9 @@
 
 
 
-              /*
-                Small cooldown so another card
-                does not accidentally activate.
-              */
               setTimeout(function() {
 
-
                 isCentering = false;
-
 
               }, 300);
 
@@ -897,15 +952,9 @@
 
 
 
-        /*
-          Cancels the action if the mouse
-          leaves before the 350ms delay.
-        */
         card.addEventListener("mouseleave", function() {
 
-
           clearTimeout(hoverTimer);
-
 
         });
 
@@ -916,10 +965,6 @@
 
 
 
-      /*
-        Closes the active card when the mouse
-        completely leaves the timeline.
-      */
       timeline.addEventListener("mouseleave", function() {
 
 
@@ -929,9 +974,7 @@
 
         timelineCards.forEach(function(card) {
 
-
           card.classList.remove("is-active");
-
 
         });
 
