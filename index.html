@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
 <!--
-  English begins as left-to-right.
+  English starts as left-to-right.
 
-  Our JavaScript near the bottom of the page will
-  automatically change dir to "rtl" when an RTL
-  language is detected.
+  JavaScript near the bottom will automatically
+  switch this to RTL when an RTL language is detected.
 -->
 <html lang="en" dir="ltr">
 
@@ -22,10 +21,6 @@
 
 
   <!-- Bootstrap CSS -->
-  <!--
-    The ID lets JavaScript switch between
-    regular Bootstrap and Bootstrap RTL.
-  -->
   <link
     id="bootstrap-stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -533,6 +528,222 @@
 
 
     <!-- ======================================== -->
+    <!-- LEVELUP: BOOTSTRAP ACCORDION -->
+    <!-- ======================================== -->
+
+    <section class="accordion-section">
+
+      <div class="container">
+
+
+        <div class="accordion-box">
+
+
+          <!-- Section heading -->
+          <div class="text-center mb-4">
+
+            <h2 class="accordion-title">
+              Explore Sustainability Goals
+            </h2>
+
+            <p class="accordion-intro">
+              Select a topic below to learn more about Intel's
+              sustainability efforts.
+            </p>
+
+          </div>
+
+
+
+          <!--
+            Bootstrap Accordion
+
+            Only one section needs to be open at a time.
+          -->
+          <div
+            class="accordion"
+            id="sustainabilityAccordion"
+          >
+
+
+
+            <!-- ======================================== -->
+            <!-- ACCORDION ITEM 1 -->
+            <!-- ======================================== -->
+
+            <div class="accordion-item">
+
+
+              <h3
+                class="accordion-header"
+                id="climate-heading"
+              >
+
+
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#climate-info"
+                  aria-expanded="true"
+                  aria-controls="climate-info"
+                >
+                  Climate Action
+                </button>
+
+
+              </h3>
+
+
+
+              <div
+                id="climate-info"
+                class="accordion-collapse collapse show"
+                aria-labelledby="climate-heading"
+                data-bs-parent="#sustainabilityAccordion"
+              >
+
+
+                <div class="accordion-body">
+
+                  Intel has committed to achieving net-zero
+                  greenhouse gas emissions across its global
+                  operations by 2040.
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- ======================================== -->
+            <!-- ACCORDION ITEM 2 -->
+            <!-- ======================================== -->
+
+            <div class="accordion-item">
+
+
+              <h3
+                class="accordion-header"
+                id="energy-heading"
+              >
+
+
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#energy-info"
+                  aria-expanded="false"
+                  aria-controls="energy-info"
+                >
+                  Renewable Electricity
+                </button>
+
+
+              </h3>
+
+
+
+              <div
+                id="energy-info"
+                class="accordion-collapse collapse"
+                aria-labelledby="energy-heading"
+                data-bs-parent="#sustainabilityAccordion"
+              >
+
+
+                <div class="accordion-body">
+
+                  In 2023, Intel achieved 99% renewable
+                  electricity usage worldwide, supporting progress
+                  toward its long-term sustainability goals.
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+
+
+
+            <!-- ======================================== -->
+            <!-- ACCORDION ITEM 3 -->
+            <!-- ======================================== -->
+
+            <div class="accordion-item">
+
+
+              <h3
+                class="accordion-header"
+                id="water-heading"
+              >
+
+
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#water-info"
+                  aria-expanded="false"
+                  aria-controls="water-info"
+                >
+                  Water &amp; Waste
+                </button>
+
+
+              </h3>
+
+
+
+              <div
+                id="water-info"
+                class="accordion-collapse collapse"
+                aria-labelledby="water-heading"
+                data-bs-parent="#sustainabilityAccordion"
+              >
+
+
+                <div class="accordion-body">
+
+                  Intel's RISE strategy includes goals focused
+                  on water stewardship, waste reduction,
+                  and more responsible manufacturing.
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+
+
+    <!-- ======================================== -->
     <!-- NEWSLETTER SUBSCRIPTION FORM -->
     <!-- ======================================== -->
 
@@ -717,7 +928,8 @@
 
 
     /* Gets every timeline card */
-    const timelineCards = document.querySelectorAll(".timeline-card");
+    const timelineCards =
+      document.querySelectorAll(".timeline-card");
 
 
     /* Checks if the device supports hovering */
@@ -744,14 +956,16 @@
       const startPosition = timeline.scrollLeft;
 
 
-      const distance = targetPosition - startPosition;
+      const distance =
+        targetPosition - startPosition;
 
 
-      const startTime = performance.now();
+      const startTime =
+        performance.now();
 
 
 
-      /* Creates a smooth start and finish */
+      /* Smooth start and finish */
       function easeInOut(t) {
 
 
@@ -764,11 +978,12 @@
 
 
 
-      /* Runs every frame */
+      /* Runs every animation frame */
       function animation(currentTime) {
 
 
-        const elapsed = currentTime - startTime;
+        const elapsed =
+          currentTime - startTime;
 
 
         const progress = Math.min(
@@ -777,7 +992,8 @@
         );
 
 
-        const easedProgress = easeInOut(progress);
+        const easedProgress =
+          easeInOut(progress);
 
 
         timeline.scrollLeft =
@@ -816,155 +1032,189 @@
 
 
 
-        card.addEventListener("mouseenter", function() {
+        card.addEventListener(
+          "mouseenter",
+          function() {
 
 
 
-          if (isCentering) {
+            if (isCentering) {
 
-            return;
+              return;
+
+            }
+
+
+
+            hoverTimer = setTimeout(
+              function() {
+
+
+
+                isCentering = true;
+
+
+
+                timelineCards.forEach(
+                  function(otherCard) {
+
+
+                    otherCard.classList.remove(
+                      "is-active"
+                    );
+
+
+                  }
+                );
+
+
+
+                card.classList.add(
+                  "is-active"
+                );
+
+
+
+                const cardPosition =
+                  card.getBoundingClientRect();
+
+
+
+                const timelinePosition =
+                  timeline.getBoundingClientRect();
+
+
+
+                const cardCenter =
+                  cardPosition.left -
+                  timelinePosition.left +
+                  timeline.scrollLeft +
+                  cardPosition.width / 2;
+
+
+
+                let centerPosition =
+                  cardCenter -
+                  timeline.clientWidth / 2;
+
+
+
+                centerPosition =
+                  Math.max(
+                    0,
+                    centerPosition
+                  );
+
+
+
+                const maxScroll =
+                  timeline.scrollWidth -
+                  timeline.clientWidth;
+
+
+
+                centerPosition =
+                  Math.min(
+                    centerPosition,
+                    maxScroll
+                  );
+
+
+
+                smoothScrollTimeline(
+                  centerPosition,
+                  850
+                );
+
+
+
+                setTimeout(
+                  function() {
+
+
+
+                    const expandedCard =
+                      card.getBoundingClientRect();
+
+
+
+                    const bottomSpace =
+                      30;
+
+
+
+                    if (
+                      expandedCard.bottom >
+                      window.innerHeight -
+                      bottomSpace
+                    ) {
+
+
+
+                      const scrollAmount =
+                        expandedCard.bottom -
+                        window.innerHeight +
+                        bottomSpace;
+
+
+
+                      window.scrollBy({
+
+                        top: scrollAmount,
+
+                        behavior: "smooth"
+
+                      });
+
+
+                    }
+
+
+
+                    setTimeout(
+                      function() {
+
+
+                        isCentering =
+                          false;
+
+
+                      },
+                      300
+                    );
+
+
+
+                  },
+                  850
+                );
+
+
+
+              },
+              350
+            );
+
 
           }
+        );
 
 
 
-          hoverTimer = setTimeout(function() {
 
 
-
-            isCentering = true;
-
-
-
-            timelineCards.forEach(function(otherCard) {
-
-              otherCard.classList.remove("is-active");
-
-            });
+        card.addEventListener(
+          "mouseleave",
+          function() {
 
 
-
-            card.classList.add("is-active");
-
-
-
-            const cardPosition =
-              card.getBoundingClientRect();
-
-
-
-            const timelinePosition =
-              timeline.getBoundingClientRect();
-
-
-
-            const cardCenter =
-              cardPosition.left -
-              timelinePosition.left +
-              timeline.scrollLeft +
-              cardPosition.width / 2;
-
-
-
-            let centerPosition =
-              cardCenter -
-              timeline.clientWidth / 2;
-
-
-
-            centerPosition = Math.max(
-              0,
-              centerPosition
+            clearTimeout(
+              hoverTimer
             );
 
 
-
-            const maxScroll =
-              timeline.scrollWidth -
-              timeline.clientWidth;
-
-
-
-            centerPosition = Math.min(
-              centerPosition,
-              maxScroll
-            );
-
-
-
-            smoothScrollTimeline(
-              centerPosition,
-              850
-            );
-
-
-
-            setTimeout(function() {
-
-
-
-              const expandedCard =
-                card.getBoundingClientRect();
-
-
-
-              const bottomSpace = 30;
-
-
-
-              if (
-                expandedCard.bottom >
-                window.innerHeight - bottomSpace
-              ) {
-
-
-
-                const scrollAmount =
-                  expandedCard.bottom -
-                  window.innerHeight +
-                  bottomSpace;
-
-
-
-                window.scrollBy({
-
-                  top: scrollAmount,
-
-                  behavior: "smooth"
-
-                });
-
-
-              }
-
-
-
-              setTimeout(function() {
-
-                isCentering = false;
-
-              }, 300);
-
-
-
-            }, 850);
-
-
-
-          }, 350);
-
-
-        });
-
-
-
-
-
-        card.addEventListener("mouseleave", function() {
-
-          clearTimeout(hoverTimer);
-
-        });
+          }
+        );
 
 
       });
@@ -973,21 +1223,32 @@
 
 
 
-      timeline.addEventListener("mouseleave", function() {
+      timeline.addEventListener(
+        "mouseleave",
+        function() {
 
 
-        clearTimeout(hoverTimer);
+          clearTimeout(
+            hoverTimer
+          );
 
 
 
-        timelineCards.forEach(function(card) {
-
-          card.classList.remove("is-active");
-
-        });
+          timelineCards.forEach(
+            function(card) {
 
 
-      });
+              card.classList.remove(
+                "is-active"
+              );
+
+
+            }
+          );
+
+
+        }
+      );
 
 
     }
@@ -1000,108 +1261,104 @@
 
 
   <!-- ======================================== -->
-  <!-- LEVELUP: AUTOMATIC RTL / LTR DETECTION -->
+  <!-- LEVELUP: AUTOMATIC RTL / LTR -->
   <!-- ======================================== -->
 
   <script>
 
 
     /*
-      These languages normally read
+      Languages that normally read
       from right to left.
     */
     const rtlLanguages = [
+
       "ar",  /* Arabic */
+
       "he",  /* Hebrew */
+
       "fa",  /* Persian */
+
       "ur",  /* Urdu */
+
       "ps",  /* Pashto */
+
       "sd",  /* Sindhi */
+
       "ug",  /* Uyghur */
+
       "yi"   /* Yiddish */
+
     ];
 
 
 
-    /*
-      Gets the Bootstrap stylesheet.
-
-      This lets us switch between normal
-      Bootstrap and Bootstrap's RTL version.
-    */
+    /* Gets the Bootstrap stylesheet */
     const bootstrapStylesheet =
-      document.getElementById("bootstrap-stylesheet");
+      document.getElementById(
+        "bootstrap-stylesheet"
+      );
 
 
 
-    /*
-      Regular Bootstrap stylesheet.
-    */
+    /* Normal Bootstrap */
     const bootstrapLTR =
       "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css";
 
 
 
-    /*
-      Bootstrap stylesheet made for
-      right-to-left languages.
-    */
+    /* RTL Bootstrap */
     const bootstrapRTL =
       "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css";
 
 
 
     /*
-      Checks the page language and decides
-      which direction the page should use.
+      Checks the page language and applies
+      the correct text direction.
     */
     function updatePageDirection() {
 
 
-      /* Gets the <html> element */
-      const page = document.documentElement;
+      const page =
+        document.documentElement;
 
 
 
-      /*
-        Gets the current language.
-
-        Example:
-        en-US becomes en
-        ar-SA becomes ar
-      */
       const language =
-        page.getAttribute("lang") || "en";
+        page.getAttribute("lang") ||
+        "en";
+
 
 
       const shortLanguage =
-        language.toLowerCase().split("-")[0];
+        language
+          .toLowerCase()
+          .split("-")[0];
 
 
 
       /*
-        Some translation tools add classes
-        such as translated-rtl or translated-ltr.
-
-        We check those too.
+        Some translation tools add
+        translated-rtl or translated-ltr.
       */
       const translatedRTL =
-        page.classList.contains("translated-rtl");
+        page.classList.contains(
+          "translated-rtl"
+        );
 
 
       const translatedLTR =
-        page.classList.contains("translated-ltr");
+        page.classList.contains(
+          "translated-ltr"
+        );
 
 
 
-      /* Stores whether the language is RTL */
       let isRTL;
 
 
 
-      /*
-        Translation classes get checked first.
-      */
       if (translatedRTL) {
 
 
@@ -1117,42 +1374,45 @@
       } else {
 
 
-        /*
-          If there is no translation class,
-          check the language code instead.
-        */
-        isRTL = rtlLanguages.includes(shortLanguage);
+        isRTL =
+          rtlLanguages.includes(
+            shortLanguage
+          );
 
 
       }
 
 
 
-      /*
-        Apply the correct page direction.
-      */
+      /* Apply RTL */
       if (isRTL) {
 
 
-        page.setAttribute("dir", "rtl");
+        page.setAttribute(
+          "dir",
+          "rtl"
+        );
 
 
-        /*
-          Change to Bootstrap's RTL stylesheet.
-        */
-        bootstrapStylesheet.href = bootstrapRTL;
+        bootstrapStylesheet.href =
+          bootstrapRTL;
 
 
-      } else {
+      }
 
 
-        page.setAttribute("dir", "ltr");
+      /* Apply LTR */
+      else {
 
 
-        /*
-          Change back to regular Bootstrap.
-        */
-        bootstrapStylesheet.href = bootstrapLTR;
+        page.setAttribute(
+          "dir",
+          "ltr"
+        );
+
+
+        bootstrapStylesheet.href =
+          bootstrapLTR;
 
 
       }
@@ -1162,44 +1422,43 @@
 
 
 
-    /*
-      Run the function when the page
-      first loads.
-    */
+    /* Check when the page loads */
     updatePageDirection();
 
 
 
     /*
-      MutationObserver watches the <html> tag
-      for changes.
-
-      This is useful when something such as
-      a translation tool changes the language.
+      Watches for translation or
+      language changes.
     */
     const languageObserver =
-      new MutationObserver(function() {
+      new MutationObserver(
+        function() {
 
 
-        updatePageDirection();
+          updatePageDirection();
 
 
-      });
+        }
+      );
 
 
 
     /*
-      Watch only the lang and class attributes.
+      Watches the lang and class
+      attributes on the HTML tag.
     */
     languageObserver.observe(
       document.documentElement,
       {
+
         attributes: true,
 
         attributeFilter: [
           "lang",
           "class"
         ]
+
       }
     );
 
@@ -1214,6 +1473,10 @@
   <!-- BOOTSTRAP JAVASCRIPT -->
   <!-- ======================================== -->
 
+  <!--
+    Bootstrap JavaScript makes components
+    such as our accordion work.
+  -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>

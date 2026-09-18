@@ -136,7 +136,9 @@ body {
 
   border-radius: 14px;
 
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
+  box-shadow:
+    0 5px 14px
+    rgba(0, 0, 0, 0.14);
 
   scroll-snap-align: center;
 
@@ -155,7 +157,9 @@ body {
 
   border-top-color: #003c71;
 
-  box-shadow: 0 12px 24px rgba(0, 60, 113, 0.25);
+  box-shadow:
+    0 12px 24px
+    rgba(0, 60, 113, 0.25);
 }
 
 
@@ -223,7 +227,7 @@ body {
 
 
 /* ======================================== */
-/* IMAGE CONTAINER */
+/* IMAGES */
 /* ======================================== */
 
 .image-container {
@@ -246,13 +250,6 @@ body {
 }
 
 
-
-
-
-/* ======================================== */
-/* TIMELINE IMAGES */
-/* ======================================== */
-
 .timeline-image {
   width: 100%;
 
@@ -264,7 +261,8 @@ body {
 
   display: block;
 
-  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s ease;
 }
 
 
@@ -327,7 +325,7 @@ body {
 
 
 /* ======================================== */
-/* TIMELINE HELP TEXT */
+/* TIMELINE HELP */
 /* ======================================== */
 
 .timeline-help {
@@ -392,7 +390,9 @@ body {
 
   text-align: center;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 12px
+    rgba(0, 0, 0, 0.08);
 
   transition:
     transform 0.3s ease,
@@ -403,7 +403,9 @@ body {
 .info-card:hover {
   transform: translateY(-5px);
 
-  box-shadow: 0 8px 18px rgba(0, 60, 113, 0.16);
+  box-shadow:
+    0 8px 18px
+    rgba(0, 60, 113, 0.16);
 }
 
 
@@ -465,6 +467,107 @@ body {
 
 
 /* ======================================== */
+/* BOOTSTRAP ACCORDION LEVELUP */
+/* ======================================== */
+
+/*
+  Background around the accordion.
+*/
+.accordion-section {
+  background-color: #f4f4f4;
+
+  padding: 60px 20px;
+}
+
+
+/*
+  Prevents the accordion from becoming
+  too wide on large screens.
+*/
+.accordion-box {
+  max-width: 850px;
+
+  margin: auto;
+}
+
+
+/* Main accordion heading */
+.accordion-title {
+  color: #003c71;
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  margin-bottom: 12px;
+}
+
+
+/* Text underneath the heading */
+.accordion-intro {
+  color: #555;
+
+  line-height: 1.6;
+
+  margin-bottom: 0;
+}
+
+
+/* Makes each accordion item cleaner */
+.accordion-item {
+  border-color: #d5e1e8;
+}
+
+
+/*
+  Accordion button text.
+*/
+.accordion-button {
+  color: #003c71;
+
+  font-weight: bold;
+
+  font-size: 17px;
+}
+
+
+/*
+  Style used when an accordion
+  section is open.
+*/
+.accordion-button:not(.collapsed) {
+  color: #003c71;
+
+  background-color: #e8f4fa;
+
+  box-shadow: none;
+}
+
+
+/*
+  Visible keyboard focus.
+*/
+.accordion-button:focus {
+  border-color: #0068b5;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(0, 104, 181, 0.18);
+}
+
+
+/* Text inside each opened section */
+.accordion-body {
+  color: #444;
+
+  line-height: 1.6;
+}
+
+
+
+
+
+/* ======================================== */
 /* NEWSLETTER */
 /* ======================================== */
 
@@ -486,7 +589,9 @@ body {
 
   padding: 35px;
 
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 5px 15px
+    rgba(0, 0, 0, 0.1);
 }
 
 
@@ -542,7 +647,9 @@ body {
 .form-control:focus {
   border-color: #0068b5;
 
-  box-shadow: 0 0 0 3px rgba(0, 104, 181, 0.18);
+  box-shadow:
+    0 0 0 3px
+    rgba(0, 104, 181, 0.18);
 }
 
 
@@ -591,7 +698,6 @@ body {
 }
 
 
-/* Copyright text */
 .footer-copy {
   margin: 0 0 12px;
 
@@ -599,10 +705,6 @@ body {
 }
 
 
-/*
-  Places the footer links side-by-side
-  and keeps them centered.
-*/
 .footer-links {
   display: flex;
 
@@ -616,7 +718,6 @@ body {
 }
 
 
-/* Footer links */
 .footer-links a {
   color: white;
 
@@ -624,16 +725,11 @@ body {
 }
 
 
-/* Adds underline when hovering */
 .footer-links a:hover {
   text-decoration: underline;
 }
 
 
-/*
-  Adds a visible keyboard focus outline
-  for accessibility.
-*/
 .footer-links a:focus {
   outline: 3px solid #21c7f3;
 
@@ -641,7 +737,6 @@ body {
 }
 
 
-/* Small note at the bottom */
 .footer-note {
   margin: 0;
 
@@ -726,6 +821,11 @@ body {
   }
 
 
+  .accordion-title {
+    font-size: 26px;
+  }
+
+
   .newsletter-box {
     padding: 25px 20px;
   }
@@ -736,10 +836,6 @@ body {
   }
 
 
-  /*
-    Slightly reduces spacing between footer
-    links on smaller screens.
-  */
   .footer-links {
     gap: 12px;
   }
