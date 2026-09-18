@@ -1,30 +1,51 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Intel: Sustainability Through the Ages</title>
 
+
+  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet"
   >
+
+
+  <!-- Bootstrap Icons -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
   >
 
 
+  <!-- Our custom CSS -->
   <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
+
+  <!-- ======================================== -->
   <!-- HEADER / HERO SECTION -->
+  <!-- ======================================== -->
+
   <header class="hero">
 
     <div class="hero-content">
+
 
       <!-- Intel logo -->
       <img
@@ -33,14 +54,17 @@
         alt="Intel Logo"
       >
 
+
       <!-- Main heading -->
       <h1>
         Sustainability<br>
         Through the Ages
       </h1>
 
+
       <!-- Decorative line -->
       <div class="title-line"></div>
+
 
       <!-- Intro paragraph -->
       <p>
@@ -49,15 +73,29 @@
         for technology and our planet.
       </p>
 
+
     </div>
 
   </header>
 
 
-  <!-- TIMELINE SECTION -->
+
+
+
+  <!-- ======================================== -->
+  <!-- MAIN CONTENT -->
+  <!-- ======================================== -->
+
   <main>
 
+
+
+    <!-- ======================================== -->
+    <!-- TIMELINE SECTION -->
+    <!-- ======================================== -->
+
     <section class="timeline">
+
 
 
       <!-- CARD 1: 1968 -->
@@ -86,6 +124,9 @@
       </article>
 
 
+
+
+
       <!-- CARD 2: 1971 -->
       <article class="timeline-card">
 
@@ -110,6 +151,9 @@
         </p>
 
       </article>
+
+
+
 
 
       <!-- CARD 3: 1978 -->
@@ -137,6 +181,9 @@
       </article>
 
 
+
+
+
       <!-- CARD 4: 1985 -->
       <article class="timeline-card">
 
@@ -161,6 +208,9 @@
         </p>
 
       </article>
+
+
+
 
 
       <!-- CARD 5: 2006 -->
@@ -190,22 +240,26 @@
       </article>
 
 
+
+
+
       <!-- CARD 6: 2020 -->
-      <article class="timeline-card">
+      <article
+        class="timeline-card"
+        id="rise-strategy"
+      >
 
         <h2>2020</h2>
 
         <h3>RISE Strategy</h3>
 
+
         <!--
-          This container has an extra class because this image
-          contains text that we do not want cropped.
+          Special container because this image
+          contains text that should not be cropped.
         -->
         <div class="image-container full-image-container">
 
-          <!--
-            full-image tells CSS to show the entire picture.
-          -->
           <img
             class="timeline-image full-image"
             src="img/6.png"
@@ -213,6 +267,7 @@
           >
 
         </div>
+
 
         <p class="card-description">
           Intel launches its RISE (Responsible, Inclusive, Sustainable,
@@ -223,8 +278,14 @@
       </article>
 
 
+
+
+
       <!-- CARD 7: 2022 -->
-      <article class="timeline-card">
+      <article
+        class="timeline-card"
+        id="climate-action"
+      >
 
         <h2>2022</h2>
 
@@ -249,8 +310,14 @@
       </article>
 
 
+
+
+
       <!-- CARD 8: 2023 -->
-      <article class="timeline-card">
+      <article
+        class="timeline-card"
+        id="renewable-energy"
+      >
 
         <h2>2023</h2>
 
@@ -273,6 +340,9 @@
         </p>
 
       </article>
+
+
+
 
 
       <!-- CARD 9: 2024 -->
@@ -300,18 +370,223 @@
 
       </article>
 
+
     </section>
 
 
-    <!-- Instructions underneath the timeline -->
+
+
+
+    <!-- ======================================== -->
+    <!-- TIMELINE HELP TEXT -->
+    <!-- ======================================== -->
+
     <p class="timeline-help">
       ← Scroll to explore the timeline → | Hover over cards to learn more!
     </p>
 
+
+
+
+
+    <!-- ======================================== -->
+    <!-- BOOTSTRAP THREE-COLUMN SECTION -->
+    <!-- ======================================== -->
+
+    <section class="info-section">
+
+      <!--
+        Bootstrap's container keeps the content
+        centered with space on the left and right.
+      -->
+      <div class="container">
+
+
+        <!-- Section heading -->
+        <div class="text-center mb-5">
+
+          <h2 class="info-title">
+            Building a Sustainable Future
+          </h2>
+
+          <p class="info-intro">
+            Explore some of the ways Intel is working toward
+            a more sustainable future.
+          </p>
+
+        </div>
+
+
+
+        <!--
+          Bootstrap row holds our columns.
+
+          g-4 adds spacing between each column.
+        -->
+        <div class="row g-4">
+
+
+
+          <!-- ======================================== -->
+          <!-- COLUMN 1 -->
+          <!-- ======================================== -->
+
+          <!--
+            col-12 = full width on small screens
+
+            col-md-4 = one-third width on medium
+            screens and larger
+          -->
+          <div class="col-12 col-md-4">
+
+
+            <div class="info-card h-100">
+
+
+              <!-- Bootstrap icon -->
+              <i
+                class="bi bi-cloud-check info-icon"
+                aria-hidden="true">
+              </i>
+
+
+              <h3>
+                Climate Action
+              </h3>
+
+
+              <p>
+                Intel continues working to reduce greenhouse gas
+                emissions and move its operations toward net-zero goals.
+              </p>
+
+
+              <a
+                href="#climate-action"
+                class="learn-more-link"
+              >
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+
+
+
+
+          <!-- ======================================== -->
+          <!-- COLUMN 2 -->
+          <!-- ======================================== -->
+
+          <div class="col-12 col-md-4">
+
+
+            <div class="info-card h-100">
+
+
+              <!-- Bootstrap icon -->
+              <i
+                class="bi bi-lightning-charge info-icon"
+                aria-hidden="true">
+              </i>
+
+
+              <h3>
+                Renewable Energy
+              </h3>
+
+
+              <p>
+                Renewable electricity helps reduce the environmental
+                impact of Intel's global operations and facilities.
+              </p>
+
+
+              <a
+                href="#renewable-energy"
+                class="learn-more-link"
+              >
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+
+
+
+
+          <!-- ======================================== -->
+          <!-- COLUMN 3 -->
+          <!-- ======================================== -->
+
+          <div class="col-12 col-md-4">
+
+
+            <div class="info-card h-100">
+
+
+              <!-- Bootstrap icon -->
+              <i
+                class="bi bi-droplet info-icon"
+                aria-hidden="true">
+              </i>
+
+
+              <h3>
+                Water &amp; Waste
+              </h3>
+
+
+              <p>
+                Intel's RISE strategy includes goals for water
+                stewardship, waste reduction, and responsible operations.
+              </p>
+
+
+              <a
+                href="#rise-strategy"
+                class="learn-more-link"
+              >
+                Learn More
+                <span aria-hidden="true">→</span>
+              </a>
+
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
   </main>
 
 
+
+
+
+  <!-- ======================================== -->
   <!-- FOOTER -->
+  <!-- ======================================== -->
+
   <footer>
 
     <p>
@@ -321,25 +596,37 @@
   </footer>
 
 
-  <!-- SMOOTH CARD CENTERING -->
+
+
+
+  <!-- ======================================== -->
+  <!-- TIMELINE JAVASCRIPT -->
+  <!-- ======================================== -->
+
   <script>
+
 
     /* Gets the timeline */
     const timeline = document.querySelector(".timeline");
 
+
     /* Gets every timeline card */
     const timelineCards = document.querySelectorAll(".timeline-card");
+
 
     /* Checks if the device supports hovering */
     const canHover = window.matchMedia(
       "(hover: hover) and (pointer: fine)"
     );
 
+
     /* Stores the hover delay */
     let hoverTimer;
 
+
     /* Prevents several cards from centering at once */
     let isCentering = false;
+
 
 
     /*
@@ -350,70 +637,97 @@
     */
     function smoothScrollTimeline(targetPosition, duration) {
 
+
       const startPosition = timeline.scrollLeft;
+
 
       const distance = targetPosition - startPosition;
 
+
       const startTime = performance.now();
+
 
 
       /* Creates a smooth start and finish */
       function easeInOut(t) {
 
+
         return t < 0.5
           ? 4 * t * t * t
           : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
+
       }
+
 
 
       /* Runs every frame of the animation */
       function animation(currentTime) {
 
+
         const elapsed = currentTime - startTime;
+
 
         const progress = Math.min(
           elapsed / duration,
           1
         );
 
+
         const easedProgress = easeInOut(progress);
+
 
         timeline.scrollLeft =
           startPosition +
           distance * easedProgress;
 
 
+
         if (progress < 1) {
+
 
           requestAnimationFrame(animation);
 
+
         }
 
+
       }
+
 
 
       /* Starts the animation */
       requestAnimationFrame(animation);
 
+
     }
+
+
 
 
 
     /* Only use hover centering on computers */
     if (canHover.matches) {
 
+
       timelineCards.forEach(function(card) {
+
 
 
         /* When the mouse enters a card */
         card.addEventListener("mouseenter", function() {
 
 
+
           /* Ignore another card while one is centering */
           if (isCentering) {
+
+
             return;
+
+
           }
+
 
 
           /*
@@ -424,19 +738,25 @@
           hoverTimer = setTimeout(function() {
 
 
+
             isCentering = true;
+
 
 
             /* Removes active style from every card */
             timelineCards.forEach(function(otherCard) {
 
+
               otherCard.classList.remove("is-active");
+
 
             });
 
 
+
             /* Keeps this card open while moving */
             card.classList.add("is-active");
+
 
 
             /* Finds card position */
@@ -444,8 +764,10 @@
               card.getBoundingClientRect();
 
 
+
             const timelinePosition =
               timeline.getBoundingClientRect();
+
 
 
             /* Finds the center of the selected card */
@@ -456,10 +778,12 @@
               cardPosition.width / 2;
 
 
+
             /* Finds where the timeline should scroll */
             let centerPosition =
               cardCenter -
               timeline.clientWidth / 2;
+
 
 
             /* Prevents scrolling too far left */
@@ -469,10 +793,12 @@
             );
 
 
+
             /* Finds the farthest possible scroll position */
             const maxScroll =
               timeline.scrollWidth -
               timeline.clientWidth;
+
 
 
             /* Prevents scrolling too far right */
@@ -482,11 +808,13 @@
             );
 
 
+
             /* Smoothly centers the card */
             smoothScrollTimeline(
               centerPosition,
               850
             );
+
 
 
             /*
@@ -496,11 +824,14 @@
             setTimeout(function() {
 
 
+
               const expandedCard =
                 card.getBoundingClientRect();
 
 
+
               const bottomSpace = 30;
+
 
 
               /*
@@ -513,6 +844,7 @@
               ) {
 
 
+
                 /* Find how far down we need to move */
                 const scrollAmount =
                   expandedCard.bottom -
@@ -520,13 +852,22 @@
                   bottomSpace;
 
 
+
                 /* Smoothly move the page down */
                 window.scrollBy({
+
+
                   top: scrollAmount,
+
+
                   behavior: "smooth"
+
+
                 });
 
+
               }
+
 
 
               /*
@@ -535,17 +876,24 @@
               */
               setTimeout(function() {
 
+
                 isCentering = false;
 
+
               }, 300);
+
 
 
             }, 850);
 
 
+
           }, 350);
 
+
         });
+
+
 
 
 
@@ -555,11 +903,16 @@
         */
         card.addEventListener("mouseleave", function() {
 
+
           clearTimeout(hoverTimer);
+
 
         });
 
+
       });
+
+
 
 
 
@@ -569,24 +922,40 @@
       */
       timeline.addEventListener("mouseleave", function() {
 
+
         clearTimeout(hoverTimer);
+
 
 
         timelineCards.forEach(function(card) {
 
+
           card.classList.remove("is-active");
+
 
         });
 
+
       });
+
 
     }
 
+
   </script>
+
+
+
+
+
+  <!-- ======================================== -->
+  <!-- BOOTSTRAP JAVASCRIPT -->
+  <!-- ======================================== -->
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>
+
 
 </body>
 

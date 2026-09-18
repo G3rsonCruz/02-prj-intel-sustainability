@@ -1,4 +1,7 @@
+/* ======================================== */
 /* GENERAL PAGE STYLING */
+/* ======================================== */
+
 
 /* Makes widths and heights easier to control */
 * {
@@ -18,7 +21,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* HERO / HEADER */
+/* ======================================== */
+
 
 /* Large Intel-blue section at the top */
 .hero {
@@ -62,6 +71,8 @@ body {
   text-transform: uppercase;
 
   line-height: 1.1;
+
+  font-weight: bold;
 }
 
 
@@ -89,7 +100,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* TIMELINE */
+/* ======================================== */
+
 
 /* Keeps the cards in one horizontal row */
 .timeline {
@@ -105,6 +122,7 @@ body {
 
   align-items: flex-start;
 
+
   /* Bonus scroll snap */
   scroll-snap-type: x mandatory;
 
@@ -112,31 +130,45 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* TIMELINE CARDS */
+/* ======================================== */
+
 
 /* Styles every card */
 .timeline-card {
   background-color: white;
 
+
   /* Fixed card width */
   flex: 0 0 260px;
 
+
   padding: 18px;
+
 
   /* Light border */
   border: 2px solid #d5e1e8;
 
+
   /* Intel-blue top border */
   border-top: 5px solid #005b96;
+
 
   /* Rounded corners */
   border-radius: 14px;
 
+
   /* Soft shadow */
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
 
+
   /* Centers cards during scroll snapping */
   scroll-snap-align: center;
+
 
   /* Smooth hover effects */
   transition:
@@ -146,7 +178,12 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* CARD HOVER EFFECT */
+/* ======================================== */
 
 
 /* Hovered and centered cards use the same style */
@@ -162,7 +199,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* YEAR BADGES */
+/* ======================================== */
+
 
 /* Rounded blue year badge */
 .timeline-card h2 {
@@ -199,7 +242,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* CARD TITLES */
+/* ======================================== */
+
 
 /* Milestone title */
 .timeline-card h3 {
@@ -210,9 +259,18 @@ body {
   font-size: 18px;
 
   color: #222;
+
+  font-weight: bold;
 }
 
+
+
+
+
+/* ======================================== */
 /* IMAGE CONTAINER */
+/* ======================================== */
+
 
 /* Holds every card image */
 .image-container {
@@ -229,7 +287,12 @@ body {
 
 
 
+
+
+/* ======================================== */
 /* SPECIAL FULL-IMAGE CONTAINER */
+/* ======================================== */
+
 
 /*
   Used for images containing important text.
@@ -240,6 +303,7 @@ body {
 .full-image-container {
   height: 150px;
 
+
   /*
     Gives any unused space a subtle background
     instead of leaving it looking empty.
@@ -248,13 +312,20 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* TIMELINE IMAGES */
+/* ======================================== */
+
 
 /* Normal card images */
 .timeline-image {
   width: 100%;
 
   height: 100%;
+
 
   /*
     cover fills the image box but can crop
@@ -270,11 +341,14 @@ body {
 }
 
 
+
 /*
   Used only on an image where we want
   EVERYTHING in the picture to stay visible.
 */
 .timeline-image.full-image {
+
+
   /*
     contain shows the entire picture
     without cutting off any edges.
@@ -285,13 +359,20 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* IMAGE HOVER EFFECT */
+/* ======================================== */
+
 
 /* Normal images zoom slightly */
 .timeline-card:hover .timeline-image,
 .timeline-card.is-active .timeline-image {
   transform: scale(1.06);
 }
+
 
 
 /*
@@ -304,7 +385,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* CARD DESCRIPTIONS */
+/* ======================================== */
+
 
 /* Description starts hidden */
 .card-description {
@@ -337,7 +424,13 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
 /* TIMELINE HELP TEXT */
+/* ======================================== */
+
 
 /* Instructions underneath timeline */
 .timeline-help {
@@ -353,7 +446,152 @@ body {
 }
 
 
+
+
+
+/* ======================================== */
+/* THREE-COLUMN BOOTSTRAP SECTION */
+/* ======================================== */
+
+
+/*
+  Main area around the new Bootstrap section.
+*/
+.info-section {
+  background-color: white;
+
+  padding: 60px 20px;
+}
+
+
+/* Main heading */
+.info-title {
+  color: #003c71;
+
+  font-size: 32px;
+
+  font-weight: bold;
+
+  margin-bottom: 12px;
+}
+
+
+/* Intro paragraph under heading */
+.info-intro {
+  color: #555;
+
+  max-width: 650px;
+
+  margin: auto;
+
+  line-height: 1.6;
+}
+
+
+/*
+  Styles each individual column like a card.
+*/
+.info-card {
+  background-color: #f7fafc;
+
+  border: 1px solid #d5e1e8;
+
+  border-top: 4px solid #0068b5;
+
+  border-radius: 12px;
+
+  padding: 30px 25px;
+
+  text-align: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Small hover effect */
+.info-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 18px rgba(0, 60, 113, 0.16);
+}
+
+
+/* Bootstrap icons */
+.info-icon {
+  display: block;
+
+  color: #0068b5;
+
+  font-size: 42px;
+
+  margin-bottom: 18px;
+}
+
+
+/* Column headings */
+.info-card h3 {
+  color: #003c71;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+
+/* Column text */
+.info-card p {
+  color: #444;
+
+  line-height: 1.6;
+
+  margin-bottom: 20px;
+}
+
+
+/* Learn More links */
+.learn-more-link {
+  color: #005b96;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+
+/* Underlines link when hovered */
+.learn-more-link:hover {
+  color: #003c71;
+
+  text-decoration: underline;
+}
+
+
+/*
+  Shows a visible outline when someone
+  reaches the link using the keyboard.
+
+  This helps accessibility.
+*/
+.learn-more-link:focus {
+  outline: 3px solid #21c7f3;
+
+  outline-offset: 4px;
+}
+
+
+
+
+
+/* ======================================== */
 /* FOOTER */
+/* ======================================== */
+
 
 /* Footer styling */
 footer {
@@ -373,8 +611,16 @@ footer p {
 }
 
 
+
+
+
+/* ======================================== */
 /* MOBILE RESPONSIVE DESIGN */
+/* ======================================== */
+
+
 @media (max-width: 700px) {
+
 
   /* Smaller heading */
   .hero h1 {
@@ -443,5 +689,12 @@ footer p {
   .timeline-help {
     padding: 0 15px;
   }
+
+
+  /* Slightly smaller Bootstrap section heading */
+  .info-title {
+    font-size: 27px;
+  }
+
 
 }
